@@ -6,8 +6,15 @@ import SetupForm from "./SetupForm";
 import Modal from "./Modal";
 
 function App() {
-	const { waiting, loading, index, questions, correctAnswers } =
-		useGlobalContext();
+	const {
+		waiting,
+		loading,
+		index,
+		questions,
+		correctAnswers,
+		nextQuestion,
+		checkAnswer,
+	} = useGlobalContext();
 
 	if (waiting) {
 		return <SetupForm />;
@@ -23,7 +30,7 @@ function App() {
 	//When using the dangerouslySetInnerHTML attribute in Title, we must make sure that the value is not passed from the user. I use it because question returns html and we want a string.
 	return (
 		<Wrapper>
-			{/* <Modal /> */}
+			<Modal />
 			<Container>
 				<Counter>
 					correct answers: {correctAnswers}/{index}
@@ -35,13 +42,14 @@ function App() {
 							return (
 								<BtnAnswer
 									key={index}
+									onClick={(() => checkAnswer(correct_answer === answer))}
 									dangerouslySetInnerHTML={{ __html: answer }}
 								/>
 							);
 						})}
 					</BtnContainer>
 				</Question>
-				<BtnNext>next</BtnNext>
+				<BtnNext onClick={nextQuestion}>next</BtnNext>
 			</Container>
 		</Wrapper>
 	);
@@ -67,7 +75,8 @@ const Container = styled.section`
 
 const Counter = styled.p`
 	margin-bottom: 2rem;
-	font-size: 1.2rem;
+	font-size: 1.4rem;
+	font-weight: bold;
 	text-align: center;
 	text-transform: capitalize;
 	color: #20b2aa;

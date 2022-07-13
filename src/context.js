@@ -37,6 +37,35 @@ const AppProvider = ({ children }) => {
 		}
 	};
 
+	const nextQuestion = () => {
+		setIndex((oldIndex) => {
+			const index = oldIndex + 1;
+			if (index > questions.length - 1) {
+				openModal();
+				return 0;
+			} else {
+				return index;
+			}
+		});
+	};
+
+	const checkAnswer = (value) => {
+		if (value) {
+			setCorrectAnswers((oldState) => oldState + 1);
+		}
+		nextQuestion();
+	};
+
+	const openModal = () => {
+		setIsModalOpen(true);
+	};
+
+	const closeModal = () => {
+		setWaiting(true);
+		setCorrectAnswers(0);
+		setIsModalOpen(false);
+	};
+
 	useEffect(() => {
 		fetchQuestions(tempUrl);
 	}, []);
@@ -51,6 +80,9 @@ const AppProvider = ({ children }) => {
 				loading,
 				error,
 				isModalOpen,
+				nextQuestion,
+				checkAnswer,
+				closeModal,
 			}}
 		>
 			{children}
