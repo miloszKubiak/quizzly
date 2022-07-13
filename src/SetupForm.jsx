@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useGlobalContext } from "./context";
 
 const SetupForm = () => {
-	const { error } = useGlobalContext();
+	const { error, quiz, handleChange, handleSubmit } = useGlobalContext();
 
 	return (
 		<Wrapper>
@@ -16,13 +16,20 @@ const SetupForm = () => {
 							type="number"
 							name="amount"
 							id="amount"
+							value={quiz.amount}
+							onChange={handleChange}
 							min={1}
 							max={50}
 						/>
 					</FormControl>
 					<FormControl>
 						<Label htmlFor="category">category</Label>
-						<Select name="category" id="category">
+						<Select
+							name="category"
+							id="category"
+							value={quiz.category}
+							onChange={handleChange}
+						>
 							<Option value="video-games">Video games</Option>
 							<Option value="history">History</Option>
 							<Option value="film">Film</Option>
@@ -30,7 +37,12 @@ const SetupForm = () => {
 					</FormControl>
 					<FormControl>
 						<Label htmlFor="difficulty">select difficulty</Label>
-						<Select name="difficulty" id="difficulty">
+						<Select
+							name="difficulty"
+							id="difficulty"
+							value={quiz.difficulty}
+							onChange={handleChange}
+						>
 							<Option value="easy">Easy</Option>
 							<Option value="medium">Medium</Option>
 							<Option value="hard">Hard</Option>
@@ -66,9 +78,7 @@ const Container = styled.section`
 	background: #f0f8ff;
 `;
 
-const Form = styled.form`
-
-`;
+const Form = styled.form``;
 
 const Title = styled.h2`
 	margin-bottom: 2rem;
@@ -84,7 +94,7 @@ const FormControl = styled.div`
 
 const Label = styled.label`
 	display: block;
-	margin-bottom: .5rem;
+	margin-bottom: 0.5rem;
 	text-transform: capitalize;
 	color: var(--font-color);
 	font-weight: bold;
@@ -110,8 +120,7 @@ const Select = styled.select`
 	border-radius: var(--radius);
 `;
 
-const Option = styled.option`
-`;
+const Option = styled.option``;
 
 const Error = styled.p`
 	color: #dc143c;
