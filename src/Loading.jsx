@@ -26,8 +26,8 @@ const Spinner = styled.div`
 	height: 8rem;
 	margin: 0 auto;
 	margin-top: 20rem;
-	border: .6rem solid red;
+	border: 0.6rem solid #7b68ee;
 	border-radius: 50%;
-	border-top-color: gray;
-	animation: spinner .6s linear infinite; 
+	border-top-color: #b0c4de;
+	animation: spinner 0.6s linear infinite;
 `;

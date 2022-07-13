@@ -23,23 +23,23 @@ const SetupForm = () => {
 					<FormControl>
 						<Label htmlFor="category">category</Label>
 						<Select name="category" id="category">
-							<Option value="video-games">video games</Option>
-							<Option value="history">history</Option>
-							<Option value="film">film</Option>
+							<Option value="video-games">Video games</Option>
+							<Option value="history">History</Option>
+							<Option value="film">Film</Option>
 						</Select>
 					</FormControl>
 					<FormControl>
 						<Label htmlFor="difficulty">select difficulty</Label>
 						<Select name="difficulty" id="difficulty">
-							<Option value="easy">easy</Option>
-							<Option value="medium">medium</Option>
-							<Option value="hard">hard</Option>
+							<Option value="easy">Easy</Option>
+							<Option value="medium">Medium</Option>
+							<Option value="hard">Hard</Option>
 						</Select>
 					</FormControl>
 					{error && (
 						<Error>
-							can't generate questions, please try different
-							options
+							Can't generate questions, please try different
+							options.
 						</Error>
 					)}
 					<Button type="submit">Start</Button>
@@ -59,18 +59,85 @@ const Wrapper = styled.main`
 `;
 
 const Container = styled.section`
-	background: red;
+	width: 90vw;
+	max-width: 34rem;
+	margin: 4rem auto;
+	padding: 3rem;
+	background: #f0f8ff;
 `;
 
 const Form = styled.form`
-	background: blue;
+
 `;
 
-const Title = styled.h2``;
-const FormControl = styled.div``;
-const Label = styled.label``;
-const Input = styled.input``;
-const Select = styled.select``;
-const Option = styled.option``;
-const Error = styled.p``;
-const Button = styled.button``;
+const Title = styled.h2`
+	margin-bottom: 2rem;
+	color: #7b68ee;
+	text-align: center;
+	font-family: cursive;
+	font-weight: bold;
+	font-size: 2rem;
+`;
+const FormControl = styled.div`
+	margin-bottom: 2rem;
+`;
+
+const Label = styled.label`
+	display: block;
+	margin-bottom: .5rem;
+	text-transform: capitalize;
+	color: var(--font-color);
+	font-weight: bold;
+`;
+
+const Input = styled.input`
+	width: 100%;
+	font-size: 1rem;
+	border: none;
+	background: #708090;
+	color: var(--color-white);
+	padding: 0.5rem;
+	border-radius: var(--radius);
+`;
+
+const Select = styled.select`
+	width: 100%;
+	font-size: 1rem;
+	border: none;
+	background: #708090;
+	color: var(--color-white);
+	padding: 0.5rem;
+	border-radius: var(--radius);
+`;
+
+const Option = styled.option`
+`;
+
+const Error = styled.p`
+	color: #dc143c;
+	font-weight: bold;
+	text-align: center;
+`;
+
+const Button = styled.button`
+	display: block;
+	margin: 0 auto;
+	margin-top: 3rem;
+	width: 40%;
+	padding: 1.2rem;
+	font-size: 1.2rem;
+	text-transform: capitalize;
+	border-radius: var(--radius);
+	transition: var(--transition);
+	letter-spacing: 0.1rem;
+	border: transparent;
+	background: #3cb371;
+	font-weight: bold;
+	color: var(--color-white);
+	cursor: pointer;
+
+	&:hover {
+		background: #98fb98;
+		color: #3cb371;
+	}
+`;

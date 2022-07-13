@@ -54,7 +54,6 @@ const Wrapper = styled.main`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: var(--color-white);
 `;
 
 const Container = styled.section`
@@ -63,7 +62,7 @@ const Container = styled.section`
 	border-radius: var(--radius);
 	margin: 0 auto;
 	padding: 3rem;
-	background: #f5fffa;
+	background: #f0f8ff;
 `;
 
 const Counter = styled.p`
