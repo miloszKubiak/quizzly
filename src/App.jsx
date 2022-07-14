@@ -25,7 +25,16 @@ function App() {
 	}
 
 	const { question, correct_answer, incorrect_answers } = questions[index];
-	const answers = [...incorrect_answers, correct_answer];
+
+	let answers = [...incorrect_answers];
+	const tempIndex = Math.floor(Math.random() * 4);
+
+	if (tempIndex === 3) {
+		answers.push(correct_answer);
+	} else {
+		answers.push(answers[tempIndex]);
+		answers[tempIndex] = correct_answer;
+	}
 
 	//When using the dangerouslySetInnerHTML attribute in Title, we must make sure that the value is not passed from the user. I use it because question returns html and we want a string.
 	return (
@@ -42,7 +51,9 @@ function App() {
 							return (
 								<BtnAnswer
 									key={index}
-									onClick={(() => checkAnswer(correct_answer === answer))}
+									onClick={() =>
+										checkAnswer(correct_answer === answer)
+									}
 									dangerouslySetInnerHTML={{ __html: answer }}
 								/>
 							);
