@@ -30,7 +30,7 @@ const SetupForm = () => {
 							value={quiz.category}
 							onChange={handleChange}
 						>
-							<Option value="video-games">Video games</Option>
+							<Option value="videoGames">Video games</Option>
 							<Option value="history">History</Option>
 							<Option value="film">Film</Option>
 						</Select>
@@ -54,7 +54,9 @@ const SetupForm = () => {
 							options.
 						</Error>
 					)}
-					<Button type="submit">Start</Button>
+					<Button type="submit" onClick={handleSubmit}>
+						Start
+					</Button>
 				</Form>
 			</Container>
 		</Wrapper>

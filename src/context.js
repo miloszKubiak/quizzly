@@ -1,6 +1,11 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
-import { useEffect } from "react";
+
+const categories = {
+	videoGames: 15,
+	history: 23,
+	film: 11,
+};
 
 const API_ENDPOINT = "https://opentdb.com/api.php?";
 const tempUrl =
@@ -18,8 +23,8 @@ const AppProvider = ({ children }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [quiz, setQuiz] = useState({
 		amount: 10,
-		category: "Video games",
-		difficulty: "Easy",
+		category: "videoGames",
+		difficulty: "easy",
 	});
 
 	const fetchQuestions = async (url) => {
@@ -79,6 +84,11 @@ const AppProvider = ({ children }) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		const { amount, category, difficulty } = quiz;
+
+		const url = `${API_ENDPOINT}amount=${amount}&difficulty=${difficulty}&category=${categories[category]}&type=multiple`;
+		
+		fetchQuestions(url);
 	};
 
 	return (
