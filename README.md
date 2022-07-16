@@ -1,15 +1,12 @@
-# Getting Started with Create React App
+## Quizzly
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![quizzly.jpg](https://i.postimg.cc/HnHmDHXK/quizzly.jpg)](https://postimg.cc/R6PyKkPQ)
 
-## Available Scripts
+Quiz application written in React using some of the most important functionalities, e.g. :
+- React Hooks(useState, custom hooks)
+- Context API
+- Styled Components
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Setup:
+- install ```npm install```
+- run ```npm start```
